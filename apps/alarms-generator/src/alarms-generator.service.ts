@@ -16,10 +16,6 @@ export class AlarmsGeneratorService {
       name: 'Alarm #' + Math.floor(Math.random() * 1000) + 1,
       buildingId: Math.floor(Math.random() * 100) + 1,
     };
-    console.log(
-      '🚀 ~ AlarmsGeneratorService ~ generateAlarm ~ alarmCreatedEvent:',
-      alarmCreatedEvent,
-    );
     this.alarmsService.emit('alarm.created', alarmCreatedEvent);
   }
 }

@@ -11,7 +11,8 @@ async function bootstrap() {
       transport: Transport.RMQ,
       options: {
         urls: [process.env.RABBITMQ_URL], // 👈
-        // queue: 'notifications-service', // 👈
+        queue: 'notifications-service', // 👈
+        noAck: false,
       },
     },
     { inheritAppConfig: true },

@@ -129,6 +129,7 @@ services:
         - APP_NAME=notifications-service
     command: npm run start:dev -- notifications-service
     environment:
+      # - NATS_URL=nats://nats:4222
       - RABBITMQ_URL=amqp://rabbitmq:5672
     volumes:
       - ./libs:/usr/src/app/libs
@@ -137,6 +138,7 @@ services:
       # Note: This is usually not a good practice to mount the "node_modules" directory on the host to the container       # We are doing this for the sake of simplicity in this example       - ./node_modules:/usr/src/app/node_modules
       - ./apps/notifications-service:/usr/src/app/apps/notifications-service
     depends_on:
+      # - nats
       - rabbitmq
   rabbitmq:
     image: rabbitmq:3-management
